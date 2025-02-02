@@ -1,4 +1,3 @@
-
 // App.js
 import express from "express";
 import bodyParser from "body-parser";
@@ -35,7 +34,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://giomessaging.onrender.com",
+      "https://ishatgmessaging.onrender.com",
     ],
     methods: ["GET", "POST"],
     credentials: true,
@@ -78,9 +77,9 @@ const handleMobileMoneySelection = async (buttonId, phone, phoneNumberId) => {
   if (currentCurrency === "RWF") {
     // Payment messages for Rwanda
     if (buttonId === "mtn_momo") {
-      callToActionMessage = `Please pay with\nMTN MoMo to ${vendorNumber}, name Global In One LTD\n____________________\nYour order is being processed and will be delivered soon.`;
+      callToActionMessage = `Please pay with\nMTN MoMo to ${vendorNumber}, name Isha Tech Group\n____________________\nYour order is being processed and will be delivered soon.`;
     } else if (buttonId === "airtel_mobile_money") {
-      callToActionMessage = `Please pay with\nAirtel Money to ${vendorNumber}, name Global In One LTD\n____________________\nYour order is being processed and will be delivered soon.`;
+      callToActionMessage = `Please pay with\nAirtel Money to ${vendorNumber}, name Isha Tech Group\n____________________\nYour order is being processed and will be delivered soon.`;
     } else {
       console.log("Unrecognized mobile money option for Rwanda:", buttonId);
       return;
@@ -88,9 +87,9 @@ const handleMobileMoneySelection = async (buttonId, phone, phoneNumberId) => {
   } else if (currentCurrency === "XOF") {
     // Payment messages for Togo
     if (buttonId === "mtn_momo") {
-      callToActionMessage = `Veuillez payer avec\nMTN Mobile Money au ${vendorNumber}, nom Global In One LTD\n____________________\nVotre commande est en cours de traitement et sera livrée sous peu.`;
+      callToActionMessage = `Veuillez payer avec\nMTN Mobile Money au ${vendorNumber}, nom Isha Tech Group\n____________________\nVotre commande est en cours de traitement et sera livrée sous peu.`;
     } else if (buttonId === "airtel_mobile_money") {
-      callToActionMessage = `Veuillez payer avec\nAirtel Money au ${vendorNumber}, nom Global In One LTD\n____________________\nVotre commande est en cours de traitement et sera livrée sous peu.`;
+      callToActionMessage = `Veuillez payer avec\nAirtel Money au ${vendorNumber}, nom Isha Tech Group\n____________________\nVotre commande est en cours de traitement et sera livrée sous peu.`;
     } else {
       console.log("Unrecognized mobile money option for Togo:", buttonId);
       return;
@@ -281,7 +280,7 @@ const handleLocation = async (location, phone, phoneNumberId) => {
     };
 
     // Save directly to Firebase
-    const docRef = await firestore.collection("whatsappOrders").add(orderData);
+    const docRef = await firestore.collection("whatsappOrdersIshatg").add(orderData);
     console.log("Order saved successfully to Firebase with ID:", docRef.id);
 
     // Send the TIN request to the customer
@@ -518,7 +517,7 @@ async function sendWhatsAppMessage(phone, messagePayload, phoneNumberId) {
         // Add verified name details
         // context: {
         //     verified_name: {
-        //         name: "Global In One LTD"
+        //         name: "Isha Tech Group"
         //     }
         // }
       },
@@ -549,21 +548,21 @@ async function sendDefaultCatalog(phone, phoneNumberId) {
         type: "product_list",
         header: {
           type: "text",  // The header type should be "image" to support both image and text
-          text: "Global In One LTD"  // You can include text along with the image
+          text: "Isha Tech Group"  // You can include text along with the image
         },
         body: { text: "Order & get fast delivery!" },
         action: {
-          catalog_id: "1128955182287808",
+          catalog_id: "589972563937214",
           sections: [
             {
               title: "Our Products",
               product_items: [
                
-                { product_retailer_id: "wywp40g4ce" },
-                { product_retailer_id: "j262675ijh" },
-                { product_retailer_id: "u3ls74gyjy" },
-                { product_retailer_id: "0yxp4rom0m" }, 
-                { product_retailer_id: "hwmi9t3sux" },
+                { product_retailer_id: "27k52aoqmr" },
+                { product_retailer_id: "e52qyxyf4d" },
+                { product_retailer_id: "kx0fnedu9n" },
+                { product_retailer_id: "o8ldieuwh1" }, 
+                { product_retailer_id: "1tv2pg5npv" },
                 
                
               ],
@@ -705,7 +704,7 @@ app.post("/api/save-order", async (req, res) => {
     };
 
     // Save order to Firestore
-    const docRef = await firestore.collection("whatsappOrders").add(orderData);
+    const docRef = await firestore.collection("whatsappOrdersIshatg").add(orderData);
 
     console.log("Order saved successfully with ID:", docRef.id);
 
@@ -722,7 +721,7 @@ app.post("/api/save-order", async (req, res) => {
 
 
 async function fetchFacebookCatalogProducts() {
-  const url = `https://graph.facebook.com/v12.0/1128955182287808/products?fields=id,name,description,price,image_url,retailer_id`;
+  const url = `https://graph.facebook.com/v12.0/589972563937214/products?fields=id,name,description,price,image_url,retailer_id`;
   let products = [];
   let nextPage = url;
 
