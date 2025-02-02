@@ -173,16 +173,10 @@ const handleTextMessages = async (message, phone, phoneNumberId) => {
       console.log("User context reset.");
       break;
 
-    case "catalog":
+    case "products":
       console.log("User requested the menu.");
       await sendDefaultCatalog(phone, phoneNumberId);
       break;
-    case "gio":
-      console.log("User requested the menu.");
-      await sendDefaultCatalog(phone, phoneNumberId);
-      break;
-
-   
 
     default:
       console.log(`Received unrecognized message: ${messageText}`);
