@@ -70,7 +70,7 @@ const handleMobileMoneySelection = async (buttonId, phone, phoneNumberId) => {
     return;
   }
 
-  const vendorNumber = userContext.vendorNumber || "+250788767816"; // Default to Rwanda
+  const vendorNumber = userContext.vendorNumber || "+250791527284"; // Default to Rwanda
   const currentCurrency = userContext.currency || "RWF"; // Default to Rwanda
   let callToActionMessage = "";
 
