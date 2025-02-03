@@ -544,19 +544,20 @@ async function sendDefaultCatalog(phone, phoneNumberId) {
           type: "text",  // The header type should be "image" to support both image and text
           text: "Isha Tech Group"  // You can include text along with the image
         },
-        body: { text: "Order & get fast delivery!" },
+        body: { text: "Order & get subscribed!" },
         action: {
           catalog_id: "589972563937214",
           sections: [
             {
-              title: "Our Products",
+              title: "Our Product",
               product_items: [
                
-                { product_retailer_id: "27k52aoqmr" },
-                { product_retailer_id: "e52qyxyf4d" },
-                { product_retailer_id: "kx0fnedu9n" },
-                { product_retailer_id: "o8ldieuwh1" }, 
-                { product_retailer_id: "1tv2pg5npv" },
+                { product_retailer_id: "sk8uyhok7l" },
+                //{ product_retailer_id: "27k52aoqmr" },
+                //{ product_retailer_id: "e52qyxyf4d" },
+                //{ product_retailer_id: "kx0fnedu9n" },
+                //{ product_retailer_id: "o8ldieuwh1" }, 
+                //{ product_retailer_id: "1tv2pg5npv" },
                 
                
               ],
